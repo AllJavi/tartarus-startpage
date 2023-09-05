@@ -94,7 +94,6 @@ class Tabs extends Component {
           box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
       }
 
-
       #panels, #panels ul,
       #panels .links {
           position: absolute;
@@ -133,8 +132,8 @@ class Tabs extends Component {
           height: 100%;
           right: 100%;
           background: #282828 url("../img/bg-1.gif") repeat left;
-	  transition: all .6s;
-	  # animation: scroll 25s ease-in-out infinite;
+	        transition: all .6s;
+	        # animation: scroll 25s ease-in-out infinite;
       }
 
       @keyframes scroll {
@@ -240,7 +239,7 @@ class Tabs extends Component {
 
       .categories .links li h1 {
           color: #d4be98;
-	  opacity: 0.5;
+	        opacity: 0.5;
           font-size: 13px;
           margin-bottom: 1em;
           font-weight: 600;
@@ -261,6 +260,23 @@ class Tabs extends Component {
       .categories .links-wrapper {
           display: flex;
           flex-wrap: wrap;
+      }
+
+      .ti {
+          animation: fadeInAnimation ease .5s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+          height: 27px;
+          width: 27px;
+      }
+
+      @keyframes fadeInAnimation {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+           }
       }
     `;
   }

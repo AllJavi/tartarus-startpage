@@ -25,6 +25,7 @@ const default_config = {
   },
   disabled: [],
   fastlink: "https://chat.openai.com/",
+  localIcons: false,
   openLastVisitedTab: true,
   tabs: [
     {
@@ -322,3 +323,13 @@ const default_config = {
 
 const CONFIG = new Config(saved_config ?? default_config);
 // const CONFIG = new Config(default_config);
+
+(function() { 
+  var css = document.createElement('link'); 
+  css.href = CONFIG.config.localIcons 
+    ? 'src/css/tabler-icons-loc.min.css' 
+    : 'src/css/tabler-icons.min.css'; 
+  css.rel = 'stylesheet'; 
+  css.type = 'text/css'; 
+  document.getElementsByTagName('head')[0].appendChild(css); 
+})();
