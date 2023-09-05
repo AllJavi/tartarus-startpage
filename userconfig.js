@@ -131,7 +131,7 @@ const default_config = {
             },
             {
               name: "dribble",
-              url: "https://app.leonardo.ai/",
+              url: "https://dribbble.com/following",
               icon: "brand-dribbble-filled",
               icon_color: "#d3869b",
             },
@@ -211,7 +211,7 @@ const default_config = {
           links: [
             {
               name: "phind",
-              url: "phind.com",
+              url: "https://www.phind.com/",
               icon: "brand-openai",
               icon_color: "#89b482",
             },
@@ -240,7 +240,7 @@ const default_config = {
           links: [
             {
               name: "hackthebox",
-              url: "app.hackthebox.com",
+              url: "https://app.hackthebox.com",
               icon: "box",
               icon_color: "#a9b665",
             },
