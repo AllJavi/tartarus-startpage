@@ -47,13 +47,13 @@ By default, the defined search engines are:
 - `!p`: pinterest
 
 ## Available banners
-|cbg-2|cbg-3|cbg-4|cbg-5|cbg-6|
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-|<img src="src/img/banners/cbg-2.gif" width=175>|<img src="src/img/banners/cbg-3.gif" width=175>|<img src="src/img/banners/cbg-4.gif" width=175>|<img src="src/img/banners/cbg-5.gif" width=175>|<img src="src/img/banners/cbg-6.gif" width=175>|
+|cbg-2|cbg-3|cbg-4|cbg-5|
+| ------------- | ------------- | ------------- | ------------- | 
+|<img src="src/img/banners/cbg-2.gif" width=175>|<img src="src/img/banners/cbg-3.gif" width=175>|<img src="src/img/banners/cbg-4.gif" width=175>|<img src="src/img/banners/cbg-5.gif" width=175>|
 
-|cbg-7|cbg-8|cbg-9|
-| ------------- | ------------- | ------------- |
-|<img src="src/img/banners/cbg-7.gif" width=175>|<img src="src/img/banners/cbg-8.gif" width=175>|<img src="src/img/banners/cbg-9.gif" width=175>|
+|cbg-6|cbg-7|cbg-8|cbg-9|
+| ------------- | ------------- | ------------- | ------------- |
+|<img src="src/img/banners/cbg-6.gif" width=175>|<img src="src/img/banners/cbg-7.gif" width=175>|<img src="src/img/banners/cbg-8.gif" width=175>|<img src="src/img/banners/cbg-9.gif" width=175>|
 
 ## Credit
 - [Dawn Startpage](https://github.com/b-coimbra/dawn) ([preview](https://startpage.metaphoric.dev/))
