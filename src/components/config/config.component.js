@@ -9,7 +9,7 @@ class ConfigTab extends Component {
   constructor() {
     super();
 
-    this.config = JSON.parse(localStorage.getItem("config"));
+    this.config = JSON.parse(localStorage.getItem("config")).config;
   }
 
   style() {
