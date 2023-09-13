@@ -117,6 +117,34 @@ class Statusbar extends Component {
           --flavour: #d3869b;
       }
 
+      #tabs ul li[active]:nth-child(6) ~ li:last-child {
+          --flavour: #89b482;
+      }
+
+      #tabs ul li[active]:nth-child(7) ~ li:last-child {
+          --flavour: #a9b665;
+      }
+
+      #tabs ul li[active]:nth-child(8) ~ li:last-child {
+          --flavour: #e78a4e;
+      }
+
+      #tabs ul li[active]:nth-child(9) ~ li:last-child {
+          --flavour: #ea6962;
+      }
+
+      #tabs ul li[active]:nth-child(10) ~ li:last-child {
+          --flavour: #7daea3;
+      }
+
+      #tabs ul li[active]:nth-child(11) ~ li:last-child {
+          --flavour: #d3869b;
+      }
+
+      #tabs ul li[active]:nth-child(12) ~ li:last-child {
+          --flavour: #89b482;
+      }
+
       .widgets {
           right: 0;
           margin: auto;
