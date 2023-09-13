@@ -24,6 +24,7 @@ const default_config = {
     "q": "config-tab",
   },
   disabled: [],
+  localIcons: false,
   fastlink: "https://chat.openai.com/",
   openLastVisitedTab: true,
   tabs: [
@@ -322,3 +323,12 @@ const default_config = {
 
 const CONFIG = new Config(saved_config ?? default_config);
 // const CONFIG = new Config(default_config);
+
+(function() {
+  var css = document.createElement('link');
+  css.href = 'src/css/tabler-icons.min.css';
+  css.rel = 'stylesheet';
+  css.type = 'text/css';
+  if (!CONFIG.config.localIcons)
+    document.getElementsByTagName('head')[0].appendChild(css);
+})();
