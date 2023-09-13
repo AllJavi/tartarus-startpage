@@ -57,6 +57,10 @@ By default, the defined search engines are:
 | ------------- | ------------- | ------------- | ------------- |
 |<img src="src/img/banners/cbg-6.gif" width=175>|<img src="src/img/banners/cbg-7.gif" width=175>|<img src="src/img/banners/cbg-8.gif" width=175>|<img src="src/img/banners/cbg-9.gif" width=175>|
 
+|cbg-10|cbg-11|cbg-12|cbg-13|
+| ------------- | ------------- | ------------- | ------------- |
+|<img src="src/img/banners/cbg-10.gif" width=175>|<img src="src/img/banners/cbg-11.gif" width=175>|<img src="src/img/banners/cbg-12.gif" width=175>|<img src="src/img/banners/cbg-13.gif" width=175>|
+
 ## Local Icons
 If you want to reduce the loading time of the icons, you could install the [icon font](https://github.com/AllJavi/tartarus-startpage/tree/master/src/fonts) locally and activate the option `"localIcons": true` in the config to disable the remote styles.
 
