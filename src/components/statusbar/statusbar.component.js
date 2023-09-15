@@ -100,6 +100,13 @@ class Statusbar extends Component {
       #tabs ul li[active]:nth-child(3) ~ li:last-child { margin: 0 0 0 70px; }
       #tabs ul li[active]:nth-child(4) ~ li:last-child { margin: 0 0 0 105px; }
       #tabs ul li[active]:nth-child(5) ~ li:last-child { margin: 0 0 0 140px; }
+      #tabs ul li[active]:nth-child(6) ~ li:last-child { margin: 0 0 0 175px; }
+      #tabs ul li[active]:nth-child(7) ~ li:last-child { margin: 0 0 0 210px; }
+      #tabs ul li[active]:nth-child(8) ~ li:last-child { margin: 0 0 0 245px; }
+      #tabs ul li[active]:nth-child(9) ~ li:last-child { margin: 0 0 0 280px; }
+      #tabs ul li[active]:nth-child(10) ~ li:last-child { margin: 0 0 0 315px; }
+      #tabs ul li[active]:nth-child(11) ~ li:last-child { margin: 0 0 0 350px; }
+      #tabs ul li[active]:nth-child(12) ~ li:last-child { margin: 0 0 0 385px; }
 
       #tabs ul li[active]:nth-child(2) ~ li:last-child {
           --flavour: #e78a4e;
