@@ -196,12 +196,6 @@ const default_config = {
               icon_color: "#89b482",
             },
             {
-              name: "hacktricks",
-              url: "https://book.hacktricks.xyz/welcome/readme",
-              icon: "biohazard",
-              icon_color: "#ea6962",
-            },
-            {
               name: "DigitalOcean",
               url: "https://digitalocean.com/",
               icon: "cloud-filled",
@@ -218,12 +212,12 @@ const default_config = {
         {
           name: "challenges",
           links: [
-            {
-              name: "hackerrank",
-              url: "https://www.hackerrank.com/dashboard",
-              icon: "code-asterix",
-              icon_color: "#a9b665",
-            },
+            //{
+            //  name: "hackerrank",
+            //  url: "https://www.hackerrank.com/dashboard",
+            //  icon: "code-asterix",
+            //  icon_color: "#a9b665",
+            //},
           ],
         },
       ],
@@ -240,6 +234,12 @@ const default_config = {
               url: "https://mail.google.com/mail/u/0/",
               icon: "brand-gmail",
               icon_color: "#ea6962",
+            },
+            {
+              name: "XIIISins mail",
+              url: "https://mail.google.com/mail/u/1/",
+              icon: "brand-gmail",
+              icon_color: "#e78a4e",
             },
           ],
         },
@@ -259,7 +259,7 @@ const default_config = {
               icon_color: "#7daea3",
             },
             {
-              name: "fotos",
+              name: "photos",
               url: "https://photos.google.com/u/1",
               icon: "photo-filled",
               icon_color: "#ea6962",
@@ -270,11 +270,23 @@ const default_config = {
           name: "stuff",
           links: [
             {
-              name: "linkedin",
-              url: "https://www.linkedin.com/feed/",
-              icon: "brand-linkedin",
+              name: "tweakers",
+              url: "https://www.tweakers.net",
+              icon: "article",
+              icon_color: "#e78a4e",
+            },
+            {
+              name: "bol.com",
+              url: "https://www.bol.com",
+              icon: "shopping-bag",
               icon_color: "#7daea3",
             },
+            // {
+            //    name: "placeholder",
+            //    url: "https://www.bol.com",
+            //    icon: "shopping-bag",
+            //    icon_color: "#ea6962",
+            // },
           ],
         },
       ],
