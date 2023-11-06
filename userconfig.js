@@ -211,14 +211,7 @@ const default_config = {
         },
         {
           name: "challenges",
-          links: [
-            //{
-            //  name: "hackerrank",
-            //  url: "https://www.hackerrank.com/dashboard",
-            //  icon: "code-asterix",
-            //  icon_color: "#a9b665",
-            //},
-          ],
+          links: [],
         },
       ],
     },
@@ -281,12 +274,6 @@ const default_config = {
               icon: "shopping-bag",
               icon_color: "#7daea3",
             },
-            // {
-            //    name: "placeholder",
-            //    url: "https://www.bol.com",
-            //    icon: "shopping-bag",
-            //    icon_color: "#ea6962",
-            // },
           ],
         },
       ],
