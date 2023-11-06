@@ -28,7 +28,7 @@ const default_config = {
   openLastVisitedTab: true,
   tabs: [
     {
-      name: "chill",
+      name: "chi ll",
       background_url: "src/img/banners/cbg-2.gif",
       categories: [
         {
@@ -205,6 +205,12 @@ const default_config = {
               name: "DigitalOcean",
               url: "https://digitalocean.com/",
               icon: "cloud-filled",
+              icon_color: "#7daea3",
+            },
+            {
+              name: "Cloudflare",
+              url: "https://dash.cloudflare.com",
+              icon: "brand-cloudflare",
               icon_color: "#7daea3",
             },
           ],
