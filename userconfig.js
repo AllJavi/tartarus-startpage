@@ -313,8 +313,8 @@ const default_config = {
             },
             {
               name: "Amazon",
-              url: "https://www.amazon.nl"
-              icon: "brand-amazon"
+              url: "https://www.amazon.nl",
+              icon: "brand-amazon",
               icon_color: "#ea6962",
             },
           ],
