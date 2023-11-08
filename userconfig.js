@@ -220,8 +220,8 @@ const default_config = {
               icon_color: "#89b482",
             },
             {
-              name: "StackOverflow"
-              url: "https://www.stackoverflow.com"
+              name: "StackOverflow",
+              url: "https://www.stackoverflow.com",
               icon: "brand-stackoverflow",
               icon_color: "#e78a4e",
             },
