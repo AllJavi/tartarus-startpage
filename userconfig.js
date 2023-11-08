@@ -88,7 +88,7 @@ const default_config = {
               icon_color: "#ea6962",
             },
             {
-              name: "Asura scans"
+              name: "Asura scans",
               url: "https://asuratoon.com",
               icon: "book",
               icon_color: "#d3869b",
