@@ -76,10 +76,22 @@ const default_config = {
               icon_color: "#a9b665",
             },
             {
-              name: "Flamescans",
+              name: "Flame scans",
               url: "http://flamecomics.com",
               icon: "flame",
               icon_color: "#e78a4e",
+            },
+            {
+              name: "Reaper scans",
+              url: "https://reaperscans.com",
+              icon: "book",
+              icon_color: "#ea6962",
+            },
+            {
+              name: "Asura scans"
+              url: "https://asuratoon.com",
+              icon: "book",
+              icon_color: "#d3869b",
             },
           ],
         },
@@ -184,6 +196,18 @@ const default_config = {
               icon: "brand-github",
               icon_color: "#7daea3",
             },
+            {
+              name: "docker hub",
+              url: "https://hub.docker.com/repositories/xiiisins",
+              icon: "brand-docker",
+              icon_color: "#e78a4e",
+            },
+            {
+              name: "ansible galaxy",
+              url: "https://galaxy.ansible.com/ui",
+              icon: "brand-ansible",
+              icon_color: "#ea6962",
+            },
           ],
         },
         {
@@ -196,6 +220,17 @@ const default_config = {
               icon_color: "#89b482",
             },
             {
+              name: "StackOverflow"
+              url: "https://www.stackoverflow.com"
+              icon: "brand-stackoverflow",
+              icon_color: "#e78a4e",
+            },
+          ],
+        },
+        {
+          name: "Infrastructure Services",
+          links: [
+            {
               name: "DigitalOcean",
               url: "https://digitalocean.com/",
               icon: "cloud-filled",
@@ -205,13 +240,9 @@ const default_config = {
               name: "Cloudflare",
               url: "https://dash.cloudflare.com",
               icon: "brand-cloudflare",
-              icon_color: "#7daea3",
+              icon_color: "#e78a4e",
             },
           ],
-        },
-        {
-          name: "challenges",
-          links: [],
         },
       ],
     },
@@ -257,6 +288,12 @@ const default_config = {
               icon: "photo-filled",
               icon_color: "#ea6962",
             },
+            {
+              name: "iCloud",
+              url: "https://www.icloud.com/",
+              icon: "brand-apple",
+              icon_color: "#d3869b",
+            },
           ],
         },
         {
@@ -273,6 +310,12 @@ const default_config = {
               url: "https://www.bol.com",
               icon: "shopping-bag",
               icon_color: "#7daea3",
+            },
+            {
+              name: "Amazon",
+              url: "https://www.amazon.nl"
+              icon: "brand-amazon"
+              icon_color: "#ea6962",
             },
           ],
         },
