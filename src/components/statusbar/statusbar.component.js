@@ -69,7 +69,7 @@ class Statusbar extends Component {
           width: 35px;
           text-align: center;
           font: 700 13px 'Yu Gothic', serif;
-          color: rgba(212, 190, 152, 0.5);
+          color: rgba(86, 95, 137, 0.5);
           padding: 6px 0;
           transition: all .1s;
           cursor: pointer;
@@ -78,7 +78,7 @@ class Statusbar extends Component {
       }
 
       #tabs ul li:not(:last-child):hover {
-          background: #32302f;
+          background: #1a1b26;
       }
 
       #tabs ul li:last-child {
@@ -91,9 +91,10 @@ class Statusbar extends Component {
       }
 
       #tabs ul li[active]:not(:last-child) {
-          color: #d4be98;
+          color: #c0caf5;
           font-size: 13px;
           padding: 6px 0;
+          background:   #414868;
       }
 
       #tabs ul li[active]:nth-child(2) ~ li:last-child { margin: 0 0 0 35px; }
@@ -208,7 +209,7 @@ class Statusbar extends Component {
 
       .fastlink {
           border: 0;
-          background: #32302f;
+          background: #1a1b26;
           color: #a9b665;
           cursor: pointer;
           border-radius: 5px 15px 15px 5px;
@@ -241,8 +242,8 @@ class Statusbar extends Component {
   }
 
   setEvents() {
-    this.refs.tabs.forEach((tab) =>
-      tab.onclick = ({ target }) => this.handleTabChange(target)
+    this.refs.tabs.forEach(
+      (tab) => (tab.onclick = ({ target }) => this.handleTabChange(target)),
     );
 
     document.onkeydown = (e) => this.handleKeyPress(e);
@@ -252,7 +253,7 @@ class Statusbar extends Component {
       if (CONFIG.config.fastlink) {
         window.location.href = CONFIG.config.fastlink;
       }
-    }
+    };
 
     if (CONFIG.openLastVisitedTab) {
       window.onbeforeunload = () => this.saveCurrentTab();
@@ -290,7 +291,7 @@ class Statusbar extends Component {
       this.activateByKey((activeTab + 1) % (this.refs.tabs.length - 1));
     } else {
       this.activateByKey(
-        (activeTab - 1) < 0 ? this.refs.tabs.length - 2 : activeTab - 1,
+        activeTab - 1 < 0 ? this.refs.tabs.length - 2 : activeTab - 1,
       );
     }
   }

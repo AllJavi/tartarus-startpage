@@ -16,27 +16,29 @@ class Links extends Component {
     const { categories } = tabs.find((f) => f.name === tabName);
 
     return `
-      ${
-      categories.map(({ name, links }) => {
-        return `
+      ${categories
+        .map(({ name, links }) => {
+          return `
           <li>
             <h1>${name}</h1>
               <div class="links-wrapper">
-              ${
-          links.map((link) => `
+              ${links
+                .map(
+                  (link) => `
                   <div class="link-info">
                     <a href="${link.url}">
                       ${Links.getIcon(link)}
                       ${
-            link.name ? `<p class="link-name">${link.name}</p>` : ""
-          }
+                        link.name ? `<p class="link-name">${link.name}</p>` : ""
+                      }
                     </a>
-                </div>`).join("")
-        }
+                </div>`,
+                )
+                .join("")}
             </div>
           </li>`;
-      }).join("")
-    }
+        })
+        .join("")}
     `;
   }
 }
@@ -52,16 +54,16 @@ class Category extends Component {
 
   static getAll(tabs) {
     return `
-      ${
-      tabs.map(({ name, background_url }, index) => {
-        return `<ul class="${name}" ${
-          Category.getBackgroundStyle(background_url)
-        } ${index == 0 ? "active" : ""}>
+      ${tabs
+        .map(({ name, background_url }, index) => {
+          return `<ul class="${name}" ${Category.getBackgroundStyle(
+            background_url,
+          )} ${index == 0 ? "active" : ""}>
             <div class="banner"></div>
             <div class="links">${Links.getAll(name, tabs)}</div>
           </ul>`;
-      }).join("")
-    }
+        })
+        .join("")}
     `;
   }
 }
@@ -89,7 +91,7 @@ class Tabs extends Component {
       status-bar {
           bottom: -70px;
           height: 32px;
-          background: #282828;
+          background: #24283b;
           border-radius: 4px;
           box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
       }
@@ -114,7 +116,7 @@ class Tabs extends Component {
           bottom: 0;
           margin: auto;
           box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-          background: #282828;
+          background: #24283b;
       }
 
       .categories {
@@ -131,7 +133,7 @@ class Tabs extends Component {
           width: 100%;
           height: 100%;
           right: 100%;
-          background: #282828 url("../img/bg-1.gif") repeat left;
+          background: #24283b url("../img/bg-1.gif") repeat left;
 	        transition: all .6s;
 	        # animation: scroll 25s ease-in-out infinite;
       }
@@ -199,7 +201,7 @@ class Tabs extends Component {
           right: 0;
           width: 70%;
           height: 100%;
-          background: #282828;
+          background: rgba(36,40,59,0.5);
           padding: 5%;
           flex-wrap: wrap;
       }
@@ -209,14 +211,14 @@ class Tabs extends Component {
       }
 
       .categories ul .links a {
-          color: #d4be98;
+          color: #a9b1d6;
           text-decoration: none;
           font: 700 18px 'Roboto', sans-serif;
           transition: all .2s;
           display: inline-flex;
           align-items: center;
           padding: .4em .7em;
-          background: #32302f;
+          background: #414868;
           box-shadow: 0 4px rgba(50, 48, 47, 0.5), 0 5px 10px rgb(0 0 0 / 20%);
           border-radius: 2px;
           margin-bottom: .7em;
@@ -267,7 +269,7 @@ class Tabs extends Component {
       }
 
       .categories .links li h1 {
-          color: #d4be98;
+          color: #a9b1d6;
 	        opacity: 0.5;
           font-size: 13px;
           margin-bottom: 1em;
