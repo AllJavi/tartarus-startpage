@@ -13,7 +13,7 @@ const default_config = {
   search: {
     engines: {
       g: ["https://google.com/search?q=", "Google"],
-      d: ["https://duckduckgo.com/html?q=", "DuckDuckGo"],
+      d: ["https://duckduckgo.com/html?q=", "DuckDuckG"],
       y: ["https://youtube.com/results?search_query=", "Youtube"],
       r: ["https://www.reddit.com/search/?q=", "Reddit"],
       p: ["https://www.pinterest.es/search/pins/?q=", "Pinterest"],
@@ -34,12 +34,6 @@ const default_config = {
       categories: [{
         name: "Social Media",
         links: [
-          {
-            name: "whatsapp",
-            url: "https://web.whatsapp.com/",
-            icon: "brand-whatsapp",
-            icon_color: "#a9b665",
-          },
           {
             name: "twitter",
             url: "https://twitter.com/home",
