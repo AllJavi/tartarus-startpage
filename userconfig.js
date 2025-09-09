@@ -35,12 +35,6 @@ const default_config = {
         name: "Social Media",
         links: [
           {
-            name: "whatsapp",
-            url: "https://web.whatsapp.com/",
-            icon: "brand-whatsapp",
-            icon_color: "#a9b665",
-          },
-          {
             name: "twitter",
             url: "https://twitter.com/home",
             icon: "brand-twitter-filled",
