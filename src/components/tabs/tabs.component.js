@@ -6,37 +6,63 @@ class Links extends Component {
   static getIcon(link) {
     const defaultColor = "#726f6f";
 
-    return link.icon
-      ? `<i class="ti ti-${link.icon} link-icon"
-            style="color: ${link.icon_color ?? defaultColor}"></i>`
-      : "";
+    if (link.icon) {
+      try {
+        // Convert icon name from camelCase to kebab-case for Iconify
+        const normalizedIcon = link.icon.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+        const iconSource = link.icon_source || 'tabler';
+        const iconAttr = `${iconSource}:${normalizedIcon}`;
+
+        // Basic validation - ensure icon name doesn't contain dangerous chars
+        if (!/^[a-zA-Z0-9\-_:]+$/.test(iconAttr)) {
+          console.warn(`Invalid icon name: ${iconAttr}`);
+          return this.getFallbackIcon(link, defaultColor);
+        }
+
+        return `<iconify-icon
+                icon="${iconAttr}"
+                class="link-icon"
+                style="color: ${link.icon_color ?? defaultColor}; font-size: 27px;"
+                onerror="this.style.display='none'; console.warn('Icon failed to load:', '${iconAttr}')">
+               </iconify-icon>`;
+      } catch (error) {
+        console.error('Error rendering icon:', error);
+        return this.getFallbackIcon(link, defaultColor);
+      }
+    }
+    return "";
+  }
+
+  static getFallbackIcon(link, defaultColor) {
+    // Fallback to a simple text icon if web component fails
+    return `<span class="link-icon-fallback"
+            style="color: ${link.icon_color ?? defaultColor}; font-size: 24px; display: inline-block;">
+            ${link.name ? link.name.charAt(0).toUpperCase() : '•'}
+           </span>`;
   }
 
   static getAll(tabName, tabs) {
     const { categories } = tabs.find((f) => f.name === tabName);
 
     return `
-      ${
-      categories.map(({ name, links }) => {
-        return `
+      ${categories.map(({ name, links }) => {
+      return `
           <li>
             <h1>${name}</h1>
               <div class="links-wrapper">
-              ${
-          links.map((link) => `
+              ${links.map((link) => `
                   <div class="link-info">
                     <a href="${link.url}">
                       ${Links.getIcon(link)}
-                      ${
-            link.name ? `<p class="link-name">${link.name}</p>` : ""
-          }
+                      ${link.name ? `<p class="link-name">${link.name}</p>` : ""
+        }
                     </a>
                 </div>`).join("")
         }
             </div>
           </li>`;
-      }).join("")
-    }
+    }).join("")
+      }
     `;
   }
 }
@@ -52,16 +78,15 @@ class Category extends Component {
 
   static getAll(tabs) {
     return `
-      ${
-      tabs.map(({ name, background_url }, index) => {
-        return `<ul class="${name}" ${
-          Category.getBackgroundStyle(background_url)
+      ${tabs.map(({ name, background_url }, index) => {
+      return `<ul class="${name}" ${Category.getBackgroundStyle(background_url)
         } ${index == 0 ? "active" : ""}>
             <div class="banner"></div>
+            <div class="category-label" data-tab-index="${index}">${name}</div>
             <div class="links">${Links.getAll(name, tabs)}</div>
           </ul>`;
-      }).join("")
-    }
+    }).join("")
+      }
     `;
   }
 }
@@ -76,8 +101,6 @@ class Tabs extends Component {
 
   imports() {
     return [
-      this.resources.icons.material,
-      this.resources.icons.tabler,
       this.resources.fonts.roboto,
       this.resources.fonts.raleway,
       this.resources.libs.awoo,
@@ -87,10 +110,9 @@ class Tabs extends Component {
   style() {
     return `
       status-bar {
-          bottom: -70px;
+          bottom: 0px;
           height: 32px;
           background: #282828;
-          border-radius: 4px;
           box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
       }
 
@@ -104,17 +126,21 @@ class Tabs extends Component {
       }
 
       #panels {
-          border-radius: 5px 0 0 5px;
+          border-radius: 15px;
           width: 90%;
-          max-width: 1200px;
-          height: 450px;
+          max-width: 100vw;
+          height: 85% !important;
+          max-height: 100vh;
+          overflow: hidden;
           right: 0;
           left: 0;
           top: 0;
           bottom: 0;
-          margin: auto;
+          margin: 5vh auto;
           box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
           background: #282828;
+          display: flex;
+          position: absolute;
       }
 
       .categories {
@@ -125,12 +151,19 @@ class Tabs extends Component {
           border-radius: 10px 0 0 10px;
       }
 
+      task-list {
+        width: 30%;
+        height: 100%;
+        border-left: 1px solid #444;
+      }
+
       .categories ul {
           --panelbg: transparent;
           --flavour: var(--accent);
           width: 100%;
           height: 100%;
-          right: 100%;
+          position: absolute;
+          display: none;
           background: #282828 url("../img/bg-1.gif") repeat left;
 	        transition: all .6s;
 	        # animation: scroll 25s ease-in-out infinite;
@@ -190,9 +223,15 @@ class Tabs extends Component {
           box-shadow: inset -1px 0 var(--flavour);
       }
 
+      .categories ul {
+          pointer-events: none;
+      }
+
       .categories ul[active] {
-          right: 0;
+          display: block;
+          opacity: 1;
           z-index: 1;
+          pointer-events: auto;
       }
 
       .categories .links {
@@ -220,6 +259,11 @@ class Tabs extends Component {
           box-shadow: 0 4px rgba(50, 48, 47, 0.5), 0 5px 10px rgb(0 0 0 / 20%);
           border-radius: 2px;
           margin-bottom: .7em;
+          pointer-events: none;
+      }
+
+      .categories ul[active] .links a {
+          pointer-events: auto;
       }
 
       .categories .link-info {
@@ -234,8 +278,7 @@ class Tabs extends Component {
           color: var(--flavour);
       }
 
-      .categories ul::after {
-          content: attr(class);
+      .category-label {
           position: absolute;
           display: flex;
           text-transform: uppercase;
@@ -252,12 +295,21 @@ class Tabs extends Component {
           background: linear-gradient(to top, rgb(50 48 47 / 90%), transparent);
           color: var(--flavour);
           letter-spacing: 1px;
-          font: 500 30px 'Nunito', sans-serif;
+          font: 500 40px 'Nunito', sans-serif;
           text-align: center;
-          flex-wrap: wrap;
-          word-break: break-all;
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          justify-content: center;
           align-items: center;
+          word-break: break-all;
           backdrop-filter: blur(3px);
+          cursor: pointer;
+          transition: all 0.2s;
+      }
+
+      .category-label:hover {
+          background: linear-gradient(to top, rgb(50 48 47 / 95%), transparent);
+          transform: scale(1.05);
       }
 
       .categories .links li:not(:last-child) {
@@ -291,6 +343,19 @@ class Tabs extends Component {
           flex-wrap: wrap;
       }
 
+      .link-icon-fallback {
+          font-weight: 600;
+          font-family: 'Roboto', sans-serif;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          animation: fadeInAnimation ease .5s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+      }
+
       .ti {
           animation: fadeInAnimation ease .5s;
           animation-iteration-count: 1;
@@ -319,14 +384,32 @@ class Tabs extends Component {
             ${Category.getAll(this.tabs)}
             <search-bar></search-bar>
             <config-tab></config-tab>
-          </div>
-          <status-bar class="!-"></status-bar>
-        </div>
-      </div>
+            </div>
+            <task-list></task-list>
+            </div>
+            </div>
+            <status-bar class="!-"></status-bar>
     `;
   }
 
   connectedCallback() {
-    this.render();
+    this.render().then(() => {
+      this.setupCategoryClickHandlers();
+    });
+  }
+
+  setupCategoryClickHandlers() {
+    const categoryLabels = this.shadowRoot.querySelectorAll('.category-label');
+
+    categoryLabels.forEach((label) => {
+      label.addEventListener('click', (event) => {
+        const tabIndex = parseInt(event.target.getAttribute('data-tab-index'));
+        // Find the status bar and trigger tab change
+        const statusBar = document.querySelector('status-bar');
+        if (statusBar && statusBar.activateByKey) {
+          statusBar.activateByKey(tabIndex);
+        }
+      });
+    });
   }
 }

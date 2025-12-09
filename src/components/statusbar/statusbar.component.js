@@ -286,7 +286,7 @@ class Statusbar extends Component {
       }
     });
 
-    if (wheelDelta > 0) {
+    if (wheelDelta < 0) {
       this.activateByKey((activeTab + 1) % (this.refs.tabs.length - 1));
     } else {
       this.activateByKey(
@@ -325,9 +325,8 @@ class Statusbar extends Component {
     const categoriesCount = this.externalRefs.categories.length;
 
     for (let i = 0; i <= categoriesCount; i++) {
-      this.refs.indicator.innerHTML += `<li tab-index=${i} ${
-        i == 0 ? "active" : ""
-      }></li>`;
+      this.refs.indicator.innerHTML += `<li tab-index=${i} ${i == 0 ? "active" : ""
+        }></li>`;
     }
   }
 

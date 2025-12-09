@@ -3,7 +3,7 @@ let saved_config = JSON.parse(localStorage.getItem("CONFIG"));
 const default_config = {
   overrideStorage: true,
   temperature: {
-    location: 'Matão, São Paulo',
+    location: 'Dhaka, Bangladesh',
     scale: "C",
   },
   clock: {
@@ -12,11 +12,17 @@ const default_config = {
   },
   search: {
     engines: {
-      g: ["https://google.com/search?q=", "Google"],
-      d: ["https://duckduckgo.com/html?q=", "DuckDuckGo"],
-      y: ["https://youtube.com/results?search_query=", "Youtube"],
-      r: ["https://www.reddit.com/search/?q=", "Reddit"],
-      p: ["https://www.pinterest.es/search/pins/?q=", "Pinterest"],
+      g: ["https://google.com/search?q=%s", "Google"],
+      c: ["https://chatgpt.com/?prompt=%s", "ChatGPT"],
+      da: ["https://duckduckgo.com/?ia=chat&origin=funnel_home_searchresults&hps=1&duckai=1&home=1&q=%s&atb=v506-2", "Duck AI"],
+      d: ["https://duckduckgo.com/?q=%s", "DuckDuckGo"],
+      y: ["https://youtube.com/results?search_query=%s", "Youtube"],
+      r: ["https://www.reddit.com/search/?q=%s", "Reddit"],
+      p: ["https://www.perplexity.ai/search?q=%s", "Perplexity"],
+    },
+    suggestions: {
+      provider: "google", // "google" or "duckduckgo"
+      enabled: true, // Now working with proxy server!
     },
   },
   keybindings: {
@@ -57,6 +63,7 @@ const default_config = {
             url: "https://www.youtube.com/",
             icon: "brand-youtube-filled",
             icon_color: "#ea6962",
+            icon_source: "tabler"  // Explicitly specify source (optional)
           },
           {
             name: "twitch",
@@ -66,12 +73,12 @@ const default_config = {
           },
         ],
       }, {
-        name: "Games",
+        name: "Music",
         links: [
           {
-            name: "chess",
-            url: "https://www.chess.com/home",
-            icon: "chess-queen-filled",
+            name: "YT Music",
+            url: "https://music.youtube.com/",
+            icon: "brand-youtube-filled",
             icon_color: "#a9b665",
           },
           {
@@ -324,11 +331,7 @@ const default_config = {
 const CONFIG = new Config(saved_config ?? default_config);
 // const CONFIG = new Config(default_config);
 
-(function() {
-  var css = document.createElement('link');
-  css.href = 'src/css/tabler-icons.min.css';
-  css.rel = 'stylesheet';
-  css.type = 'text/css';
-  if (!CONFIG.config.localIcons)
-    document.getElementsByTagName('head')[0].appendChild(css);
+(function () {
+  // Iconify web component handles icon loading dynamically
+  // Individual icons are loaded on-demand from CDN or can be self-hosted
 })();
